@@ -59,3 +59,19 @@ function addToCart(productId) {
 
 // Initialize the page
 displayProducts();
+
+// Banner slider: change banner background every 5 seconds
+const banner = document.querySelector('.dhamaka-banner');
+if (banner) {
+    const colors = [
+        'linear-gradient(135deg, #0f0c29, #302b63, #24243e)',
+        'linear-gradient(135deg, #8e2de2, #4a00e0)',
+        'linear-gradient(135deg, #1f4037, #99f2c8)'
+    ];
+    let currentColor = 0;
+
+    setInterval(() => {
+        currentColor = (currentColor + 1) % colors.length;
+        banner.style.background = colors[currentColor];
+    }, 5000);
+}
