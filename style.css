@@ -24,10 +24,30 @@ body { background-color: #f1f3f6; }
 .section-header { display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 15px; margin-bottom: 20px; }
 .view-all { background: #2874f0; color: white; border: none; padding: 10px 20px; border-radius: 2px; cursor: pointer; }
 
-.product-grid { display: flex; gap: 20px; overflow-x: auto; }
-.item-card { text-align: center; border: 1px solid #f0f0f0; padding: 15px; min-width: 200px; transition: 0.2s; }
-.item-card:hover { transform: scale(1.02); }
-.item-card img { height: 150px; margin-bottom: 10px; }
+.view-all { background: #2874f0; color: white; border: none; padding: 10px 20px; border-radius: 2px; cursor: pointer; transition: transform 180ms, box-shadow 180ms; }
+.view-all:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(40,116,240,0.12); }
+
+.product-grid { display: flex; gap: 20px; overflow-x: auto; scroll-behavior: smooth; padding-bottom: 8px; -webkit-overflow-scrolling: touch; }
+.product-grid::-webkit-scrollbar { height: 8px; }
+.product-grid::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 4px; }
+
+.item-card { text-align: center; border: 1px solid #f0f0f0; padding: 15px; min-width: 200px; transition: transform 240ms cubic-bezier(.2,.8,.2,1), box-shadow 240ms; background: linear-gradient(180deg,#ffffff,#fafafa); animation: fadeUp 360ms ease both; }
+.item-card:hover { transform: translateY(-8px) scale(1.03); box-shadow: 0 10px 25px rgba(0,0,0,0.08); }
+.item-card img { height: 150px; margin-bottom: 10px; transition: transform 240ms; }
+.item-card:hover img { transform: translateY(-6px) scale(1.02); }
+.product-grid .item-card:nth-child(3n+1) { animation-delay: 60ms; }
+.product-grid .item-card:nth-child(3n+2) { animation-delay: 140ms; }
+.product-grid .item-card:nth-child(3n) { animation-delay: 220ms; }
+
 .p-name { font-weight: bold; font-size: 14px; }
 .p-price { color: #388e3c; margin: 5px 0; }
 .p-brand { color: #878787; font-size: 12px; }
+
+/* Search input focus */
+.search-container input { width: 100%; padding: 10px; border: none; border-radius: 2px; outline: none; transition: box-shadow 180ms, transform 180ms; }
+.search-container input:focus { box-shadow: 0 6px 18px rgba(40,116,240,0.12); transform: translateY(-1px); }
+
+@keyframes fadeUp {
+	from { opacity: 0; transform: translateY(12px); }
+	to { opacity: 1; transform: translateY(0); }
+}
