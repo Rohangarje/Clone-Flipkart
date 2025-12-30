@@ -51,3 +51,23 @@ body { background-color: #f1f3f6; }
 	from { opacity: 0; transform: translateY(12px); }
 	to { opacity: 1; transform: translateY(0); }
 }
+.add-btn {
+    margin-top: 10px;
+    background-color: #fb641b; /* Flipkart Orange */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-weight: bold;
+    border-radius: 2px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.add-btn:hover {
+    background-color: #f4511e;
+}
+
+.cart-status {
+    font-weight: bold;
+    color: #2874f0;
+}
